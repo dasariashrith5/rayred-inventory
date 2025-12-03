@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi. middleware. cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import database_models
 from database import SessionLocal, engine
@@ -20,31 +20,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000", 
-        "http://localhost:3001",
-        "http://192.168.0.124:3001",
-        "http://127.0.0.1:3001",
-        "https://rayred-inventory-evyu794ao-ashriths-projects-0df5a558.vercel.app",
-        "https://*.vercel.app"
+        ...
     ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-# list of articles
-articles = [
-    Product(ARTICLE="Phone", SIZE="Standard", price=699, quantity=50),
-    Product(ARTICLE="Laptop", SIZE="15 inch", price=999, quantity=30),
-    Product(ARTICLE="Pen", SIZE="Blue", price=1, quantity=100),
-    Product(ARTICLE="Table", SIZE="Large", price=199, quantity=20),
 ]
 
 
